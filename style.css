@@ -1,0 +1,35 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+header {
+  display: block;
+  background-color: #2266ff;
+  color: white;
+  font-size: large;
+  text-align: center;
+  line-height: 48px;
+  height: 48px; /* ヘッダの高さは48px */
+
+  position: relative; /* これがないとz-indexが効かない */
+  z-index: 104; /* mainよりz-indexが上に来ないと影がmainで消えてしまう */
+}
+
+header.with-scroll {
+  /* 影はお好みで */
+  box-shadow:rgb(0 0 0 / 20%) 0px 2px 4px -1px,
+             rgb(0 0 0 / 14%) 0px 4px 5px 0px,
+             rgb(0 0 0 / 12%) 0px 1px 10px 0px
+}
+
+main {
+  background-color: whitesmoke;
+  overflow-y: scroll; /* コンテンツがはみ出たらスクロール */
+  height: calc(100% - 48px); /* ヘッダの高さを引いたところは全部コンテンツの領域 */
+}
+
+main div {
+  height: 1000px; /* スクロールするために高さを大きくしている */
+}
